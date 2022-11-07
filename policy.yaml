@@ -1,0 +1,6 @@
+# This policy is relatively simple. The globalPolicyEvaluationMode line declares that this policy extends the global policy defined by Google. This allows all official GKE containers to run by default. Additionally, the policy declares a defaultAdmissionRule that states that all other pods will be rejected. The admission rule includes an enforcementMode line, which states that all pods that are not conformant to this rule should be blocked from running on the cluster.
+
+globalPolicyEvaluationMode: ENABLE
+defaultAdmissionRule:
+  evaluationMode: ALWAYS_DENY
+  enforcementMode: ENFORCED_BLOCK_AND_AUDIT_LOG
